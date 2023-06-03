@@ -35,3 +35,15 @@ const logNumber: (i: number) => void = (i: number) => {
 const json = '{"x":10, "y":20}';
 let coordinates: { x: number; y: number } = JSON.parse(json);
 console.log(coordinates); // {x:10, y: 20}
+
+// 2) When we declare a variable on a line and initialize it later
+let words = ['red', 'green', 'blue'];
+// let foundWord; => will set the 'any' type
+let foundWord: boolean;
+// let foundWord = false; => will infer bool type
+
+for (const word of words) {
+  if (word === ' green') {
+    foundWord = true;
+  }
+}
