@@ -6,5 +6,8 @@ axios_1.default.get(url).then(function (response) {
     // const todo: ITodo = response.data;
     var todo = response.data;
     var id = todo.id, title = todo.title, completed = todo.completed;
-    console.log("\n\t\tThe Todo with id: ".concat(id, "\n\t\tHas a title of: ").concat(title, "\n\t\tIs it finished: ").concat(completed, "\n\t"));
+    logTodo(id, title, completed);
 });
+var logTodo = function (id, title, completed) {
+    console.log("\n\tThe Todo with id: ".concat(id, "\n\tHas a title of: ").concat(title, "\n\tIs it finished: ").concat(completed, "\n"));
+};
