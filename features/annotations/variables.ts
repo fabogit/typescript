@@ -47,3 +47,13 @@ for (const word of words) {
     foundWord = true;
   }
 }
+
+// 3) Variable whose type cannot be inferred correctly
+let numbersList = [-10, -1, 12];
+let numberAboveZero: boolean | number = false;
+
+for (const number of numbersList) {
+  if (number > 0) {
+    numberAboveZero = number;
+  }
+}
