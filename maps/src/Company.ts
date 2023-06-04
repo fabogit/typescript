@@ -5,14 +5,14 @@ export class Company {
   catchPhrase: string;
   location: {
     lat: number;
-    lon: number;
+    lng: number;
   };
   constructor() {
     this.name = faker.company.name();
     this.catchPhrase = faker.company.catchPhrase();
     this.location = {
       lat: faker.location.latitude(),
-      lon: faker.location.longitude(),
+      lng: faker.location.longitude(),
     };
   }
 }
