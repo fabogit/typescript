@@ -5,16 +5,18 @@ interface IMappable {
     lat: number;
     lng: number;
   };
+  markerContent(): string;
 }
 
 export class CustomMap {
+  // expose only Map() and Marker()
   private googleMap: google.maps.Map;
   constructor(elementId: string) {
     this.googleMap = new google.maps.Map(
       document.getElementById(elementId) as HTMLElement,
       {
         center: { lat: 0, lng: 0 },
-        zoom: 2.25,
+        zoom: 2,
         zoomControl: true,
       }
     );
@@ -30,7 +32,7 @@ export class CustomMap {
     });
     marker.addListener('click', () => {
       const infoWindow = new google.maps.InfoWindow({
-        content: 'Hi',
+        content: mappable.markerContent(),
       });
       infoWindow.open(this.googleMap, marker);
     });
