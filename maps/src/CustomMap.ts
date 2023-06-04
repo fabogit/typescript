@@ -1,10 +1,11 @@
 // Instruction to every other class
 // on how they can be argument to addMarker()
-interface IMappable {
+export interface IMappable {
   location: {
     lat: number;
     lng: number;
   };
+  color: string;
   markerContent(): string;
 }
 
@@ -25,6 +26,7 @@ export class CustomMap {
   addMarker(mappable: IMappable): void {
     const marker = new google.maps.Marker({
       map: this.googleMap,
+      label: mappable.color,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.lng,
